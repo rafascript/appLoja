@@ -1,6 +1,11 @@
 package app.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,9 +19,16 @@ import lombok.Setter;
 
 public class Produto {
 	
-	private long id;
-	private String nome;
-	private double valor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+	
+	@NotBlank
+	String nome;
+	
+	@NotNull
+	double valor;
+	
 	
 	public long getId() {
 		return id;

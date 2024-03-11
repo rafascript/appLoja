@@ -1,9 +1,13 @@
 package app.entity;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,12 +23,18 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String nome;
-	private String cpf;
-	private int idade;
-	private String telefone;
+	long id;
+	@NotBlank
+	String nome;
+	@NotBlank
+	String cpf;
+	@NotNull
+	int idade;
+	@NotBlank
+	String telefone;
 	
+	@OneToMany(mappedBy = "cliente")
+	private List<Venda> vendas;
 	
 	
 	public long getId() {
