@@ -9,14 +9,14 @@ import app.entity.Venda;
 
 public interface VendaRepository extends JpaRepository<Venda, Long> {
 
-	public List<Venda> findByEnderecoDaEntrega (String enderecoDaEntrega);
+	public List<Venda> findByEndereco (String enderecoDaEntrega);
 	
-	public List<Venda> findByValorTotal (double valor);
+	public List<Venda> findByValor (double valor);
 	
 	@Query("FROM Venda v WHERE v.valor < :valor")
-	public List<Venda> findByValorMaior (double valor);
+	public List<Venda> findValorMaior (double valor);
 	
 	@Query("FROM Venda v WHERE v.valor > :valor")
-	public List<Venda> findByValorMenor (double valor);
+	public List<Venda> findValorMenor (double valor);
 	
 }

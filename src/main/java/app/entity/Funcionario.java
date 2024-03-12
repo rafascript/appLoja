@@ -31,7 +31,7 @@ public class Funcionario {
 	@NotBlank
 	String matricula;
 	
-	@OneToMany(mappedBy = "vendedor")
+	@OneToMany(mappedBy = "funcionario")
 	private List<Venda> vendas;
 	
 	

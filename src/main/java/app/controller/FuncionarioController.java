@@ -79,5 +79,37 @@ public class FuncionarioController {
 			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
 		}
 	}
-
+	
+	@GetMapping("/findByNome")
+	public ResponseEntity<List<Funcionario>> findByNome(@RequestBody String nome) {
+		try {
+			List<Funcionario> lista = this.funcionarioService.findByNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByIdade")
+	public ResponseEntity<List<Funcionario>> findByIdade(@RequestBody int idade) {
+		try {
+			List<Funcionario> lista = this.funcionarioService.findByIdade(idade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByMatricula")
+	public ResponseEntity<List<Funcionario>> findByMatricula(@RequestBody String matricula) {
+		try {
+			List<Funcionario> lista = this.funcionarioService.findByMatricula(matricula);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
 }

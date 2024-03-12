@@ -44,20 +44,20 @@ public class VendaService {
 		return venda;
 	}
 	
-	public List<Venda> findByEnderecoDaEntrega(String enderecoDaEntrega) {
-        return vendaRepository.findByEnderecoDaEntrega(enderecoDaEntrega);
+	public List<Venda> findByEndereco(String enderecoDaEntrega) {
+        return vendaRepository.findByEndereco(enderecoDaEntrega);
     }
 
-    public List<Venda> findByValorTotal(double valor) {
-        return vendaRepository.findByValorTotal(valor);
+    public List<Venda> findByValor(double valor) {
+        return vendaRepository.findByValor(valor);
     }
 
-    public List<Venda> findByValorMaior(double valor) {
-        return vendaRepository.findByValorMaior(valor);
+    public List<Venda> findValorMaior(double valor) {
+        return vendaRepository.findValorMaior(valor);
     }
 
-    public List<Venda> findByValorMenor(double valor) {
-        return vendaRepository.findByValorMenor(valor);
+    public List<Venda> findValorMenor(double valor) {
+        return vendaRepository.findValorMenor(valor);
     }
 
 }
