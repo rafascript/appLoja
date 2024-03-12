@@ -1,9 +1,13 @@
 package app.entity;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +23,16 @@ public class Funcionario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String nome;
-	private int idade;
-	private String matricula;
+	long id;
+	@NotBlank
+	String nome;
+	@NotNull
+	int idade;
+	@NotBlank
+	String matricula;
+	
+	@OneToMany(mappedBy = "vendedor")
+	private List<Venda> vendas;
 	
 	
 	public long getId() {
