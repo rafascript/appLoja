@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Venda;
@@ -80,5 +81,48 @@ public class VendaController {
 			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
 		}
 	}
-
+	
+	@GetMapping("/findByEndereco")
+	public ResponseEntity<List<Venda>> findByEndereco(@RequestParam String endereco) {
+		try {
+			List<Venda> lista = this.vendaService.findByEndereco(endereco);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByValor")
+	public ResponseEntity<List<Venda>> findByValor(@RequestParam double valor) {
+		try {
+			List<Venda> lista = this.vendaService.findByValor(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findValorMaior")
+	public ResponseEntity<List<Venda>> findValorMaior(@RequestParam double valor) {
+		try {
+			List<Venda> lista = this.vendaService.findValorMaior(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findValorMenor")
+	public ResponseEntity<List<Venda>> findValorMenor(@RequestParam double valor) {
+		try {
+			List<Venda> lista = this.vendaService.findValorMenor(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
+	}
 }
