@@ -43,5 +43,21 @@ public class VendaService {
 		 Venda venda = this.vendaRepository.findById(id).get();
 		return venda;
 	}
+	
+	public List<Venda> findByEnderecoDaEntrega(String enderecoDaEntrega) {
+        return vendaRepository.findByEnderecoDaEntrega(enderecoDaEntrega);
+    }
+
+    public List<Venda> findByValorTotal(double valor) {
+        return vendaRepository.findByValorTotal(valor);
+    }
+
+    public List<Venda> findByValorMaior(double valor) {
+        return vendaRepository.findByValorMaior(valor);
+    }
+
+    public List<Venda> findByValorMenor(double valor) {
+        return vendaRepository.findByValorMenor(valor);
+    }
 
 }

@@ -43,6 +43,22 @@ public class ProdutoService {
 		 Produto produto = this.produtoRepository.findById(id).get();
 		return produto;
 	}
+	
+	public List<Produto> findByNome(String nome) {
+	        return produtoRepository.findByNome(nome);
+	 }
+
+	    public List<Produto> findByValor(double valor) {
+	        return produtoRepository.findByValor(valor);
+	    }
+
+	    public List<Produto> findByValorMaior(double valor) {
+	        return produtoRepository.findByValorMaior(valor);
+	    }
+
+	    public List<Produto> findByValorMenor(double valor) {
+	        return produtoRepository.findByValorMenor(valor);
+	    }
 
 
 }
