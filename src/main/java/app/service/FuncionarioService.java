@@ -42,5 +42,17 @@ public class FuncionarioService {
 		 Funcionario funcionario = this.funcionarioRepository.findById(id).get();
 		return funcionario;
 	}
+	
+	public List<Funcionario> findByNome(String nome) {
+        return funcionarioRepository.findByNome(nome);
+    }
+
+    public List<Funcionario> findByIdade(int idade) {
+        return funcionarioRepository.findByIdade(idade);
+    }
+
+    public List<Funcionario> findByMatricula(String matricula) {
+        return funcionarioRepository.findByMatricula(matricula);
+    }
 
 }
