@@ -9,7 +9,8 @@ import app.entity.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
-	@Query("FROM Cliente c WHERE c.nome LIKE '%" + ":nome" + "%'")
+	
+	@Query("SELECT c FROM Cliente c WHERE c.nome LIKE CONCAT ('%', :nome, '%')")
 	public List<Cliente> findByNome (String nome);
 	
 	public List<Cliente> findByCpf (String cpf);

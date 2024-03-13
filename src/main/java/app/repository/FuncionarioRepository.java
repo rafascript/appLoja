@@ -9,7 +9,8 @@ import app.entity.Funcionario;
 
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 	
-	@Query("FROM Funcionario c WHERE c.nome LIKE '%" + ":nome" + "%'")
+
+	@Query("SELECT f FROM Funcionario f WHERE f.nome LIKE CONCAT ('%', :nome, '%')")
 	public List<Funcionario> findByNome (String nome);
 	
 	public List<Funcionario> findByIdade (int idade);
