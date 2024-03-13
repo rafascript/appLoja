@@ -3,6 +3,7 @@ package app.entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,6 +30,7 @@ public class Venda {
 	long id;
 	
 	String endereco;
+
 	double valor;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -42,25 +44,5 @@ public class Venda {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "venda_produto")
 	private List<Produto> produtos;
-	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	public double getValor() {
-		return valor;
-	}
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-
+		
 }

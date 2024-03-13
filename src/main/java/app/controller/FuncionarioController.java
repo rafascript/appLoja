@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Funcionario;
@@ -81,7 +82,7 @@ public class FuncionarioController {
 	}
 	
 	@GetMapping("/findByNome")
-	public ResponseEntity<List<Funcionario>> findByNome(@RequestBody String nome) {
+	public ResponseEntity<List<Funcionario>> findByNome(@RequestParam String nome) {
 		try {
 			List<Funcionario> lista = this.funcionarioService.findByNome(nome);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -92,7 +93,7 @@ public class FuncionarioController {
 	}
 	
 	@GetMapping("/findByIdade")
-	public ResponseEntity<List<Funcionario>> findByIdade(@RequestBody int idade) {
+	public ResponseEntity<List<Funcionario>> findByIdade(@RequestParam int idade) {
 		try {
 			List<Funcionario> lista = this.funcionarioService.findByIdade(idade);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -103,7 +104,7 @@ public class FuncionarioController {
 	}
 	
 	@GetMapping("/findByMatricula")
-	public ResponseEntity<List<Funcionario>> findByMatricula(@RequestBody String matricula) {
+	public ResponseEntity<List<Funcionario>> findByMatricula(@RequestParam String matricula) {
 		try {
 			List<Funcionario> lista = this.funcionarioService.findByMatricula(matricula);
 			return new ResponseEntity<>(lista, HttpStatus.OK);

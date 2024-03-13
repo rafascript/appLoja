@@ -118,7 +118,7 @@ public class ClienteController {
 	@GetMapping("/findByCpf")
 	public ResponseEntity<List<Cliente>> findByCpf(@RequestParam String cpf) {
 		try {
-			List<Cliente> lista = this.clienteService.findByTelefone(cpf);
+			List<Cliente> lista = this.clienteService.findByCpf(cpf);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
 			
 		} catch (Exception e) {
