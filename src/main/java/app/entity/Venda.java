@@ -40,7 +40,7 @@ public class Venda {
 	Funcionario funcionario;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "Venda_Produto")
+	@JoinTable(name = "venda_produto")
 	private List<Produto> produtos;
 	
 	public long getId() {

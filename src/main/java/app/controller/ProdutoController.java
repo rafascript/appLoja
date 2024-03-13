@@ -86,7 +86,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/findByNome")
-	public ResponseEntity<List<Produto>> findByNome(@RequestBody String nome) {
+	public ResponseEntity<List<Produto>> findByNome(@RequestParam String nome) {
 		try {
 			List<Produto> lista = this.produtoService.findByNome(nome);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -97,7 +97,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/findByValor")
-	public ResponseEntity<List<Produto>> findByValor(@RequestBody double valor) {
+	public ResponseEntity<List<Produto>> findByValor(@RequestParam double valor) {
 		try {
 			List<Produto> lista = this.produtoService.findByValor(valor);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -108,7 +108,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/findByValorMaior")
-	public ResponseEntity<List<Produto>> findByValorMaior(@RequestBody double valor) {
+	public ResponseEntity<List<Produto>> findByValorMaior(@RequestParam double valor) {
 		try {
 			List<Produto> lista = this.produtoService.findByValorMaior(valor);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -119,7 +119,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/findByValorMenor")
-	public ResponseEntity<List<Produto>> findByValorMenor(@RequestBody double valor) {
+	public ResponseEntity<List<Produto>> findByValorMenor(@RequestParam double valor) {
 		try {
 			List<Produto> lista = this.produtoService.findByValorMenor(valor);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
