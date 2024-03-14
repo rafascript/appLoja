@@ -25,15 +25,15 @@ public class Funcionario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	private long id;
 	@NotBlank
-	String nome;
+	private String nome;
 	@Min(16)
 	@NotNull
-	int idade;
+	private int idade;
 
 	@NotBlank
-	String matricula;
+	private String matricula;
 	
 	@OneToMany(mappedBy = "funcionario")
 	private List<Venda> vendas;

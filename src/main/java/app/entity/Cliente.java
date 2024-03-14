@@ -25,17 +25,17 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	private long id;
 	@NotBlank
-	String nome;
+	private String nome;
 	
 	@Column(unique = true)
 	@NotBlank
-	String cpf;
+	private String cpf;
 	@NotNull
-	int idade;
+	private int idade;
 	@NotBlank
-	String telefone;
+	private String telefone;
 	
 	@OneToMany(mappedBy = "cliente")
 	private List<Venda> vendas;
