@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.entity.Produto;
 import app.entity.Venda;
 import app.repository.VendaRepository;
 
@@ -17,6 +18,8 @@ public class VendaService {
 	
 	public String save (Venda venda) {
 		
+		double valorTotal = this.calcularValorTotal(venda.getProdutos());
+		venda.setValor(valorTotal);
 		this.vendaRepository.save(venda);
 		return "Venda salvo com sucesso!";
 	}
@@ -24,6 +27,9 @@ public class VendaService {
 	public String update (Venda venda, long id) {
 		
 		venda.setId(id);
+		double valorTotal = this.calcularValorTotal(venda.getProdutos());
+		venda.setValor(valorTotal);
+		venda = this.verificarStatus(venda);
 		this.vendaRepository.save(venda);
 		return "Venda atualizado com sucesso!";
 	}
@@ -58,6 +64,26 @@ public class VendaService {
 
     public List<Venda> findValorMenor(double valor) {
         return vendaRepository.findValorMenor(valor);
+    }
+    
+    //-----------------------------------------------------
+    
+    public double calcularValorTotal(List<Produto> produtos) {
+    	double soma = 0;
+    	if(produtos != null) {
+    		for(int i = 0; i < produtos.size(); i++) {
+    			soma += produtos.get(i).getValor();
+    		}
+    	}
+    	return soma;
+    }
+    
+    public Venda verificarStatus(Venda venda) {
+    	if(venda.getStatus().equals("CANCELADO")) {
+    		venda.setValor(0);
+    		venda.setProdutos(null);
+    	}
+    	return venda;
     }
 
 }

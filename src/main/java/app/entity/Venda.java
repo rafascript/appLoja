@@ -34,6 +34,8 @@ public class Venda {
 	private String endereco;
 	@NotNull
 	private double valor;
+	@NotBlank
+	private String status;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("vendas")
