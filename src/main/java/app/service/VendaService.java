@@ -42,6 +42,9 @@ public class VendaService {
 	
 	public String delete (long id) {
 		
+		if(id < 0)
+			throw new RuntimeException("Objeto não pode estar nulo");
+		
 		this.vendaRepository.deleteById(id);
 		return "Venda deletado com sucesso!";
 	}

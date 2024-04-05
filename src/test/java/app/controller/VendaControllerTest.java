@@ -152,9 +152,8 @@ public class VendaControllerTest {
 	@Test
 	@DisplayName("DeleteErro")
 	void testeDeleteErro() {
-		ResponseEntity<String> venda = vendaController.delete(1);
+		ResponseEntity<String> venda = vendaController.delete(-1);
 		assertEquals(HttpStatus.BAD_REQUEST, venda.getStatusCode());
-
 	}
 	
 	//--------------------------------------------------------------------------
