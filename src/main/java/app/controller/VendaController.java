@@ -42,7 +42,7 @@ public class VendaController {
 	public ResponseEntity<String> update (@RequestBody Venda venda,@PathVariable long id) {
 		try {
 			String mensagem = this.vendaService.update(venda, id);
-			return new ResponseEntity<>(mensagem, HttpStatus.OK);
+			return new ResponseEntity<>(mensagem, HttpStatus.ACCEPTED);
 
 		} catch (Exception e) {
 			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);

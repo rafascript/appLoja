@@ -18,6 +18,9 @@ public class VendaService {
 	
 	public String save (Venda venda) {
 		
+		if (venda == null)
+			throw new RuntimeException("Objeto não pode estar nulo");
+		
 		double valorTotal = this.calcularValorTotal(venda.getProdutos());
 		venda.setValor(valorTotal);
 		this.vendaRepository.save(venda);
@@ -25,6 +28,9 @@ public class VendaService {
 	}
 	
 	public String update (Venda venda, long id) {
+		
+		if (venda == null)
+			throw new RuntimeException("Objeto não pode estar nulo");
 		
 		venda.setId(id);
 		double valorTotal = this.calcularValorTotal(venda.getProdutos());
